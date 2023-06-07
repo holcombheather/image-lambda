@@ -1,56 +1,76 @@
 # LAB - Class 17
 
-## Project: AWS: S3 and Lambda
+## AWS: S3 and Lambda
+### Author: Heather Holcomb | 401d53
 
-### Author: Heather Holocomb | 401d53
+***
 
 ### Problem Domain
 
-This application implements socket server functionality with the chat open ai to function that allows the user to interact with a chatbot.
+  AWS Lambda allows writing code that is triggered in the cloud, without thinking about maintaining servers. We’ll use it today to automatically run some processing on image files after they’re uploaded to an S3 Bucket.
+
+### Feature Tasks
+- Create an S3 Bucket with “open” read permissions, so that anyone can see the images/files in their browser.
+- A user should be able to upload an image at any size, and update a dictionary of all images that have been uploaded so far.
+- When an **image** is uploaded to your S3 bucket, it should trigger a Lambda function which must:
+  - Download a file called “images.json” from the S3 Bucket if it exists.
+  - The images.json should be an array of objects, each representing an image. Create an empty array if this file is not present.
+  - Create a metadata object describing the image.
+    - Name, Size, Type, etc.
+  - Append the data for this image to the array.
+    - Note: If the image is a duplicate name, update the object in the array, don’t just add it.
+  - Upload the images.json file back to the S3 bucket.
+
+***
 
 ### Links and Resources
 
-- [GitHub Actions ci/cd]()
+- [GitHub Actions CI/CD](https://github.com/holcombheather/image-lambda/actions)
 - [Link to images.json file]()
 
+***
 
 ### Collaborators
 
-We built out the functionalities of this application with the help of sites such as [Medium](https://medium.com/codingthesmartway-com-blog/build-a-complete-context-aware-ai-chatbot-web-app-with-node-js-socket-io-and-gpt-4-api-916cab298769),[openAI](https://platform.openai.com/docs/guides/gpt-best-practices/six-strategies-for-getting-better-results) documentation, and referenced demo code provided by Ryan Gallaway. To debug CORS issue, referenced the [Socket.io Docs](https://socket.io/docs/v4/handling-cors/) that specifically addresses how to handle CORS configuration. Used AI to help with testing.
+- Referenced lecture demo for class 17 with instructor Ryan Gallaway.
+- Referenced [AWS docs on Getting Started with S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/creating-bucket.html)
+
+***
 
 ### Setup
 
-Install:
+#### How to initialize this application
+1. Clone this repo into your local environment
+2. `npm init -y`
+3. `npm i express dotenv`
+4. Copy Code Fellows config files `cp -r ../seattle-code-javascript-401d53/configs/ .`
 
-1. `npm init -y`
-2. `npm install express socket.io socket.io-client openai`
-2.  Create `env` file
-3.  Receive api key from Openai(https://openai.com/)
+#### `.env` requirements
 
+- `PORT`= 3001  (see `.env.sample`)
 
-#### `.env` requirements (where applicable)
+#### How to run this application
 
-port variable exists within the env sample
-
-
-#### How to initialize/run your application (where applicable)
-
-clone repo, `npm i` to install the required dependencies to run this application
-
+- `npm start` or `nodemon`
 
 #### How to use this lambda
 
-Test with your localhost port
+1. lorem
 
 #### Issues encountered during deployment of this lambda
 
-Test with your localhost port
+- Challenge with
 
-#### Tests
+***
 
-to run tests, after running `npm i`, run the command `npm test`
+### Tests
 
-#### UML
+- To run tests, after running `npm i`, run the command `npm test`
+- N/A for Lab 17
 
-![UML image](./assets/UML_lab14.png)
+***
+
+### UML
+
+![UML image](assets/UML_lab17.png)
 
