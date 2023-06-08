@@ -1,14 +1,17 @@
 {
   "name": "image-lambda",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "## AWS: S3 and Lambda ### Author: Heather Holcomb | 401d53",
+  "main": "index.mjs",
   "scripts": {
-    "start": "node index.js",
+    "start": "node index.mjs",
     "test": "jest --verbose --coverage",
     "test-watch": "jest --watchAll --verbose --coverage"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "node-fetch": "^3.3.1"
+  }
 }
