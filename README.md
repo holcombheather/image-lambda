@@ -66,7 +66,6 @@
 ### Tests
 
 - To run tests, after running `npm i`, run the command `npm test`
-- N/A for Lab 17
 
 ***
 
